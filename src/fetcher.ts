@@ -35,7 +35,7 @@ export abstract class Fetcher {
   public static async fetchTokenData(
     chainId: ChainId,
     address: string,
-    provider =JsonRpcProvider('https://node1-bdbe.settlemint.com/bpaas-f540867fCDC4f5C61637c3FDBEB57372BD593567');// getDefaultProvider(getNetwork(chainId)),
+    provider =JsonRpcProvider('https://node1-bdbe.settlemint.com/bpaas-f540867fCDC4f5C61637c3FDBEB57372BD593567'),
     symbol?: string,
     name?: string
   ): Promise<Token> {
@@ -64,7 +64,7 @@ export abstract class Fetcher {
   public static async fetchPairData(
     tokenA: Token,
     tokenB: Token,
-    provider = getDefaultProvider(getNetwork(tokenA.chainId))
+    provider = JsonRpcProvider('https://node1-bdbe.settlemint.com/bpaas-f540867fCDC4f5C61637c3FDBEB57372BD593567'))
   ): Promise<Pair> {
     invariant(tokenA.chainId === tokenB.chainId, 'CHAIN_ID')
     const address = Pair.getAddress(tokenA, tokenB)
