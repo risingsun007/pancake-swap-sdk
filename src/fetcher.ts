@@ -1,6 +1,6 @@
 import { Contract } from '@ethersproject/contracts'
 import { getNetwork } from '@ethersproject/networks'
-import { getDefaultProvider } from '@ethersproject/providers'
+import { getDefaultProvider,JsonRpcProvider } from '@ethersproject/providers'
 import { TokenAmount } from './entities/fractions/tokenAmount'
 import { Pair } from './entities/pair'
 import IPancakePair from './abis/IPancakePair.json'
@@ -35,7 +35,7 @@ export abstract class Fetcher {
   public static async fetchTokenData(
     chainId: ChainId,
     address: string,
-    provider = getDefaultProvider(getNetwork(chainId)),
+    provider =JsonRpcProvider('https://node1-bdbe.settlemint.com/bpaas-f540867fCDC4f5C61637c3FDBEB57372BD593567');// getDefaultProvider(getNetwork(chainId)),
     symbol?: string,
     name?: string
   ): Promise<Token> {
